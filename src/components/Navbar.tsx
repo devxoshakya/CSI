@@ -80,7 +80,7 @@ export default function Navbar() {
               {item}
             </Link>
           ))}
-          <button className="w-full text-left px-3 py-2 text-base font-medium text-white bg-[#000080] hover:bg-[#000060] rounded-md transition-colors">
+          <button  className="w-full text-left px-3 py-2 text-base font-medium text-white bg-[#000080] hover:bg-[#000060] rounded-md transition-colors">
             Login
           </button>
         </div>
