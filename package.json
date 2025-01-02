@@ -31,7 +31,8 @@
     "remark-rehype": "^11.1.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "unified": "^11.0.5"
+    "unified": "^11.0.5",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^20",
