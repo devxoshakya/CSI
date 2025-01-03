@@ -8,16 +8,15 @@ import { TypewriterEffectSmoothDemo } from "@/components/shared/typewritereffect
 
 export default function Landing () {
   return (
-    <div  >
+    <div>
     
-     
-     <div className="flex justify-between mx-16">
+    
+    <div className="flex justify-between mx-16">
       <TypewriterEffectSmoothDemo/>
       <ThreeDCardDemo/>
-     </div >
-     <MarqueeDemo/>
-     
+    </div >
+    <MarqueeDemo/>
+    
     </div>
-   
   );
 }

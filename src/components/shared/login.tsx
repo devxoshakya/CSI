@@ -9,11 +9,17 @@ import {
 } from "../ui/animated-modal";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { signIn, useSession } from "next-auth/react";
 
 export function AnimatedModalDemo() {
+
+  const { data: session } = useSession();
+  console.log(session);
   const images = ["/g1.jpg", "/g2.jpg", "/g3.jpg", "/g4.jpg", "/g5.jpg"];
     
-  
+  const handleSignIn = async () => {
+    await signIn("google");
+  }
   return (
     <div className="py-40  flex items-center justify-center">
       <Modal>
@@ -114,7 +120,7 @@ export function AnimatedModalDemo() {
             <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
               Cancel
             </button>
-            <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+            <button onClick={handleSignIn}  className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28" >
               Register!
             </button>
           </ModalFooter>
