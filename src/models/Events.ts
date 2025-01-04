@@ -2,10 +2,11 @@ import mongoose from 'mongoose';
 
 const eventSchema = new mongoose.Schema({
     eventId: { type: String, required: true, unique: true }, // Unique event identifier
+    eventSecret: { type: String, required: true }, // Secret key for the event
     title: { type: String, required: true },
     date: { type: Date, required: true },
     adminEmail: { type: String, required: true }, // Store admin's email directly
     createdAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Event || mongoose.model('Event', eventSchema);;
+export default mongoose.models.Event || mongoose.model('Event', eventSchema);

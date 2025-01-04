@@ -9,5 +9,5 @@ const checkInSchema = new mongoose.Schema({
     checkInTime: { type: Date, default: Date.now },
   });
   
-  export default mongoose.model('CheckIn', checkInSchema);
+  export default mongoose.models.CheckIn || mongoose.model('CheckIn', checkInSchema);
   

@@ -9,4 +9,4 @@ const attendanceSchema = new mongoose.Schema({
     attendanceTime: { type: Date, default: Date.now },
 });
 
-export default mongoose.model('Attendance', attendanceSchema);
+export default mongoose.models.Attendance || mongoose.model('Attendance', attendanceSchema);

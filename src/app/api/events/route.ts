@@ -5,7 +5,7 @@ import { getBlogPosts } from '@/data/events'; // Function to get event metadata 
 import { getToken } from 'next-auth/jwt'; // To get token and validate user
 
 // Connect to the database
-connectToDatabase();
+await connectToDatabase();
 
 // Secret for token validation (from environment variables)
 const SECRET = process.env.NEXTAUTH_SECRET;
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
 
         // Loop through the metadata and check if each event exists in the DB
         for (const data of metadata) {
-            const { eventId, title, date } = data.metadata;
+            const { eventId, title, date,eventSecret } = data.metadata;
 
             // Check if the event already exists
             const existingEvent = await Event.findOne({ eventId });
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
 
 
 
-            if (!eventId || !date || !title) {
+            if (!eventId || !date || !title || !eventSecret) {
                 // return NextResponse.json({ error: 'Missing required metadata fields: eventId, title, or date' }, { status: 400 });
                 continue; // Skip this iteration if any of the required fields are missing
             }
@@ -52,6 +52,7 @@ export async function GET(req: NextRequest) {
                     eventId,
                     title,
                     date,
+                    eventSecret,
                     adminEmail: token.googleId, // Use the email from the token
                 });
                 await newEvent.save();
@@ -59,6 +60,7 @@ export async function GET(req: NextRequest) {
                 // If event exists, update it (optional, based on your needs)
                 existingEvent.title = title;
                 existingEvent.date = date;
+                existingEvent.eventSecret = eventSecret;
                 await existingEvent.save();
             }
         }
