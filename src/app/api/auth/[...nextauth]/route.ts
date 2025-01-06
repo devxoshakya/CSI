@@ -102,6 +102,7 @@ const handler = NextAuth({
           token.image = dbUser.image;
           token.privileges = dbUser.privileges;
           token.isOnboarded = dbUser.isOnboarded;
+          token.email = dbUser.email;
         }
       }
 
