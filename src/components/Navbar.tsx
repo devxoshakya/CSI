@@ -18,14 +18,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 border-b-2 border-gray-200">
         <div className="flex items-center justify-between h-16">
             <div className=' relative h-12 w-12'>
-              <Image
-                src="/logo.png"
-                alt="CSI Logo"
-                fill
-                className="object-contain h-12 w-12"
-                sizes="(max-width: 768px) 48px, 48px"
-                priority
-              />
+              <Link href="/">
+               
+                  <Image
+                    src="/logo.png"
+                    alt="CSI Logo"
+                    fill
+                    className="object-contain h-12 w-12"
+                    sizes="(max-width: 768px) 48px, 48px"
+                    priority
+                  />
+              </Link>
+                
+             
           </div>
 
           {/* Desktop Navigation */}
