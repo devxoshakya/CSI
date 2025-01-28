@@ -17,8 +17,37 @@ import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-
 function Footerdemo() {
   const [isDarkMode, setIsDarkMode] = React.useState(true)
   const [isChatOpen, setIsChatOpen] = React.useState(false)
+  const [email, setEmail] = React.useState("")
 
-  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+
+    if (localStorage.getItem("subscribed")) {
+      console.log("You have already subscribed.");
+      return;
+    }
+
+    const response = await fetch("/api/news-letter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (response.ok) {
+      // Handle success
+      console.log("Subscribed successfully!");
+      localStorage.setItem("subscribed", "true");
+      setEmail(""); // Clear the input field
+    } else {
+      // Handle error
+      console.error("Subscription failed.");
+    }
+  };
+
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
@@ -28,11 +57,14 @@ function Footerdemo() {
             <p className="mb-6 text-muted-foreground">
               Join our newsletter for the latest updates and exclusive offers.
             </p>
-            <form className="relative">
+            <form className="relative" onSubmit={handleSubmit}>
               <Input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="pr-12 backdrop-blur-sm"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <Button
                 type="submit"
@@ -77,7 +109,7 @@ function Footerdemo() {
           <div className="relative">
             <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
             <div className="mb-6 flex space-x-4">
-              <TooltipProvider>
+            <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-full">

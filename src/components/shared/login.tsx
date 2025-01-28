@@ -13,7 +13,7 @@ import { signIn, useSession } from "next-auth/react";
 import { Lightbulb, Handshake, Book, Target, Users, Globe } from 'lucide-react';
 
 
-export function AnimatedModalDemo() {
+export function AnimatedModalDemo({...props}:any) {
   const { data: session } = useSession();
   console.log(session);
   const images = ["/g1.jpg", "/g2.jpg", "/g3.jpg", "/g4.jpg", "/g5.jpg"];
@@ -24,7 +24,7 @@ export function AnimatedModalDemo() {
   return (
     <div className="py-30  flex items-center justify-center">
       <Modal>
-        <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
+        <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn" {...props}>
           <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
             Join Us
           </span>
