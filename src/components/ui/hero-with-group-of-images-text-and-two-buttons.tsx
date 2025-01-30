@@ -2,6 +2,8 @@ import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedModalDemo } from "../shared/login";
+import Image from "next/image";
+import WhatsHappeningButton from "../shared/WhatsHappeningButton";
 
 function Hero() {
   return (
@@ -23,13 +25,34 @@ function Hero() {
             </div>
             <div className="flex flex-row gap-4 ">
               <AnimatedModalDemo className="px-12 bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn"/>
-              
+              <WhatsHappeningButton/>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8">
-            <div className="bg-muted rounded-md aspect-square"></div>
-            <div className="bg-muted rounded-md row-span-2"></div>
-            <div className="bg-muted rounded-md aspect-square"></div>
+            <div className="bg-muted rounded-md aspect-square">
+            <Image
+              src="/g3.jpg"
+              alt="hero image"
+              height={2000}
+              width={1000}
+              className="object-cover"/>
+            </div>
+            <div className="bg-muted rounded-md row-span-2">
+              <Image
+              src="/team/Dev.jpg"
+              alt="hero image"
+              height={2000}
+              width={1000}
+              className="object-fill"/>
+            </div>
+            <div className="bg-muted rounded-md aspect-square relative overflow-hidden">
+              <Image
+              src="/team/Akshita.jpg"
+              alt="hero image"
+              height={1000}
+              width={1000}
+              className="object-fit"/>
+            </div>
           </div>
         </div>
       </div>
