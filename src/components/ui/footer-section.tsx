@@ -49,7 +49,7 @@ function Footerdemo() {
   };
 
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
+    <footer id="contact"  className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
@@ -80,30 +80,30 @@ function Footerdemo() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <a href="#" className="block transition-colors hover:text-primary">
+              <a href="/" className="block transition-colors hover:text-primary">
                 Home
               </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                About Us
+              <a href="#team" className="block transition-colors hover:text-primary">
+                Team
               </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                Services
+              <a href="/whats-happening" className="block transition-colors hover:text-primary">
+                What's Happening
               </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                Products
+              <a href="/events" className="block transition-colors hover:text-primary">
+                Events
               </a>
-              <a href="#" className="block transition-colors hover:text-primary">
-                Contact
+              <a href="#contact" className="block transition-colors hover:text-primary">
+                Contact Us
               </a>
             </nav>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>123 Innovation Street</p>
-              <p>Tech City, TC 12345</p>
-              <p>Phone: (123) 456-7890</p>
-              <p>Email: hello@example.com</p>
+              <p>Ram Nagar, Kankerkhera</p>
+              <p>Meerut (UP), 250001</p>
+              <p>Phone: (987) 654-3210</p>
+              <p>Email: akshitasrivastava1505@gmail.com</p>
             </address>
           </div>
           <div className="relative">
@@ -167,18 +167,12 @@ function Footerdemo() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © 2024 Your Company. All rights reserved.
+            © 2025 CSI MIET. All rights reserved.
           </p>
           <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
-              Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Terms of Service
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Cookie Settings
-            </a>
+            <span className="text-muted-foreground">
+              Website devloped by <a href="#" className="text-neutral-600 font-semibold">Akshita Srivastava</a>
+            </span>
           </nav>
         </div>
       </div>

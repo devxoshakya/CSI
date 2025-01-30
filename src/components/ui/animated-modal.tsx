@@ -92,7 +92,6 @@ export const ModalBody = ({
             opacity: 1,
             backdropFilter: "blur(10px)",
           }}
-        
           className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50"
         >
           <Overlay />
@@ -100,7 +99,7 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[50%] max-h-[90%] md:max-w-[40%] mx-2 rounded bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             )}
             initial={{
@@ -210,6 +209,18 @@ const CloseIcon = () => {
         <path d="M18 6l-12 12" />
         <path d="M6 6l12 12" />
       </svg>
+    </button>
+  );
+};
+
+export const Cancel = () => {
+  const { setOpen } = useModal();
+  return (
+    <button
+      onClick={() => setOpen(false)}
+      className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28"
+    >
+      Cancel
     </button>
   );
 };
