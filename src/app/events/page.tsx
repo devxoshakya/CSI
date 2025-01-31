@@ -21,7 +21,7 @@ export default async function EventsPage() {
   const [featuredPost, ...otherPosts] = sortedPosts;
 
   return (
-    <main className="container mx-auto py-8">
+    <main  id="events" className="container mx-auto py-8">
       {/* Featured Event/Blog */}
       <Upcoming
         image={featuredPost.metadata.imageUrl}
@@ -29,7 +29,7 @@ export default async function EventsPage() {
         description={featuredPost.metadata.summary}
       />
 
-      <h1 className="text-3xl font-bold mb-6 mt-8">Other Events/Blogs</h1>
+      <h1 className="text-3xl font-bold mb-6 mt-8">Events</h1>
 
       {/* Remaining Events/Blogs */}
       <Tiles

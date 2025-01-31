@@ -35,10 +35,10 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {['Events', 'Tree', 'Team'].map((item) => (
+            {['Events', 'Team'].map((item) => (
               <Link
                 key={item}
-                href={`/${item.toLowerCase()}`}
+                href={`#${item.toLowerCase()}`}
                 className="text-gray-600 hover:scale-110 px-3 py-2 text-sm font-medium transition-colors relative group"
               >
                 {item}
@@ -76,7 +76,7 @@ export default function Navbar() {
         transition={{ duration: 0.2 }}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
-          {['Events', 'Tree', 'Team'].map((item) => (
+          {['Events', 'Tree',"Team"].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
