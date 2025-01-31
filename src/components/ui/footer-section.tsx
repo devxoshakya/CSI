@@ -171,7 +171,7 @@ function Footerdemo() {
           </p>
           <nav className="flex gap-4 text-sm">
             <span className="text-muted-foreground">
-              Website devloped by <a href="#" className="text-neutral-600 font-semibold">Akshita Srivastava</a>
+              Website devloped by <a href="#" className="text-neutral-600 font-semibold">Akshita Srivastava and Dev Shakya</a>
             </span>
           </nav>
         </div>
