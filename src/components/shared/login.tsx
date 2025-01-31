@@ -6,6 +6,8 @@ import {
   ModalContent,
   ModalFooter,
   ModalTrigger,
+  Cancel
+
 } from "../ui/animated-modal";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -13,18 +15,21 @@ import { signIn, useSession } from "next-auth/react";
 import { Lightbulb, Handshake, Book, Target, Users, Globe } from 'lucide-react';
 
 
-export function AnimatedModalDemo() {
+
+export function AnimatedModalDemo({...props}:any) {
   const { data: session } = useSession();
   console.log(session);
   const images = ["/g1.jpg", "/g2.jpg", "/g3.jpg", "/g4.jpg", "/g5.jpg"];
+  
 
   const handleSignIn = async () => {
     await signIn("google");
   };
   return (
     <div className="py-30  flex items-center justify-center">
+      
       <Modal>
-        <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
+        <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn" {...props}>
           <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
             Join Us
           </span>
@@ -118,9 +123,10 @@ export function AnimatedModalDemo() {
             </div>
           </ModalContent>
           <ModalFooter className="gap-4">
-            <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
+            {/* <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
               Cancel
-            </button>
+            </button> */}
+            <Cancel/>
             <button
               onClick={handleSignIn}
               className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28"
