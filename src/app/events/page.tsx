@@ -1,6 +1,6 @@
 import Upcoming from "@/components/shared/upcoming";
 import Tiles from "@/components/shared/tiles";
-import { getBlogPosts } from "@/data/events";
+import { getBlogPosts } from "@/data/server/events";
 
 export const metadata = {
   title: "Events/Blogs",

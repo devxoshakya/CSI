@@ -48,7 +48,6 @@ export async function getPost(slug: string) {
     slug,
   };
 }
-
 async function getAllPosts(dir: string) {
   let mdxFiles = getMDXFiles(dir);
   return Promise.all(
