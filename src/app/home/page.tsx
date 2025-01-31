@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { ThreeDCardDemo } from "@/components/shared/3-dcarddemo";
 import { MarqueeDemo } from "@/components/shared/marqueedemo";
-import { FeaturesSectionWithBentoGrid } from "@/components/feature-section-with-bento-grid";
+import { FeaturesSectionDemo } from "@/components/feature-section-with-bento-grid";
 
 
 
@@ -17,7 +17,7 @@ export default function Landing () {
      <Hero/>
      </div>
       <EventsPage/>
-      <FeaturesSectionWithBentoGrid/>
+      <FeaturesSectionDemo/>
       <MarqueeDemo/>
       <FAQ/>
       <Footerdemo/>
