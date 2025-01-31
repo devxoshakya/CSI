@@ -11,32 +11,32 @@ import Link from "next/link";
 export function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Track issues effectively",
+      title: "Meet the Minds Behind CSI",
       description:
-        "Track and manage your project issues with ease using our intuitive interface.",
+        "Your go-to team at the Computer Society of India, where innovation meets collaboration!",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Capture pictures with AI",
-      description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+      title: "Moments That Matter: CSI in Action",
+
+      description: "From tech talks to hands-on workshops, our events capture the spirit of innovation. Check out the highlights that made every moment unforgettable!",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
-      title: "Watch our AI on YouTube",
-      description:
-        "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+      title: "Dive into Innovation: Watch CSI on YouTube!",
+
+     description: "From tech talks to exciting events, our YouTube channel is your front-row seat to all things tech. Subscribe now and never miss out on the action!",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
     },
     {
-      title: "Deploy in seconds",
+      title: " Join CSI and Make It Happen!",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
+        "Ready to make an impact? Whether you're a student, a tech enthusiast, or a visionary, joining CSI opens doors to endless opportunities. Collaborate with us and be part of a community that's shaping the future of technology!",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -45,12 +45,11 @@ export function FeaturesSectionDemo() {
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
       <div className="px-8">
         <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Packed with thousands of features
+        Where Tech Meets Talent: The Heart of Innovation at CSI!
         </h4>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
+        Leading the charge in tech, innovation, and collaboration, CSI is the pulse of our campus—empowering students to create, inspire, and transform the future!
         </p>
       </div>
 
@@ -130,7 +129,7 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
   return (
     <Link
-      href="https://www.youtube.com/watch?v=RPa3_AD1_Vs"
+      href="https://youtu.be/JENcrJxL_Bk?feature=shared"
       target="__blank"
       className="relative flex gap-10  h-full group/image"
     >
@@ -139,7 +138,7 @@ export const SkeletonThree = () => {
           {/* TODO */}
           <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
           <Image
-            src="https://assets.aceternity.com/fireship.jpg"
+            src="/a3.jpg"
             alt="header"
             width={800}
             height={800}
@@ -153,11 +152,9 @@ export const SkeletonThree = () => {
 
 export const SkeletonTwo = () => {
   const images = [
-    "https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1554931670-4ebfabf6e7a9?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "/a1.jpg",
+    "/a2.jpg",
+    "/a3.jpg",
   ];
 
   const imageVariants = {
