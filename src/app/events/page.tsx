@@ -1,6 +1,6 @@
 import Upcoming from "@/components/shared/upcoming";
 import Tiles from "@/components/shared/tiles";
-import { getBlogPosts } from "@/data/events";
+import { getBlogPosts } from "@/data/server/events";
 
 export const metadata = {
   title: "Events/Blogs",
@@ -21,7 +21,7 @@ export default async function EventsPage() {
   const [featuredPost, ...otherPosts] = sortedPosts;
 
   return (
-    <main  id="events" className="container mx-auto py-8">
+    <main  id="events" className="container mx-auto py-8 max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* Featured Event/Blog */}
       <Upcoming
         image={featuredPost.metadata.imageUrl}

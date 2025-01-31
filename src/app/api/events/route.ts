@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
 import Event from '@/models/Events';
 import connectToDatabase from '@/config/mongoose';
-import { getBlogPosts } from '@/data/events'; // Function to get event metadata from MDX files
+import { getBlogPosts } from '@/data/server/events'; // Function to get event metadata from MDX files
 import { getToken } from 'next-auth/jwt'; // To get token and validate user
 
 // Connect to the database
