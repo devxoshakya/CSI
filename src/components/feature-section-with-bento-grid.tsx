@@ -107,16 +107,16 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 
 export const SkeletonOne = () => {
   return (
-    <div className="relative flex px-2 gap-2 h-full">
-      <div className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2">
+    <div className="relative flex md:w-[80%] mx-auto px-2 gap-2 h-full">
+      <div className="  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full md:w-full">
+        <div className="flex flex-1 h-full flex-col space-y-2">
           {/* TODO */}
           <Image
-            src="/g2.jpg"
+            src="/hero/h4.png"
             alt="header"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
+            width={2800}
+            height={2800}
+            className="h-full w-full mx-auto aspect-square object-cover object-left-top rounded-sm"
           />
         </div>
       </div>

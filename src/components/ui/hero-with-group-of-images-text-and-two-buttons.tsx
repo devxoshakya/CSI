@@ -31,27 +31,28 @@ function Hero() {
           <div className="grid grid-cols-2 gap-8">
             <div className="bg-muted rounded-md aspect-square">
             <Image
-              src="/g3.jpg"
+              src="/hero/h3.png"
               alt="hero image"
               height={2000}
               width={1000}
-              className="object-cover"/>
+              className="object-cover h-full w-full"/>
             </div>
             <div className="bg-muted rounded-md row-span-2">
               <Image
-              src="/team/Dev.jpg"
+              src="/hero/h2.png"
               alt="hero image"
               height={2000}
               width={1000}
-              className="object-fill"/>
+              className="object-cover h-full w-full"
+              />
             </div>
-            <div className="bg-muted rounded-md aspect-square relative overflow-hidden">
+            <div className="bg-muted rounded-md aspect-square relative overflow-hidden object-fill">
               <Image
-              src="/team/Akshita.jpg"
+              src="/hero/h1.png"
               alt="hero image"
               height={1000}
-              width={1000}
-              className="object-fit"/>
+              width={2000}
+              className="object-cover h-full w-full"/>
             </div>
           </div>
         </div>

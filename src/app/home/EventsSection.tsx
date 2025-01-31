@@ -68,7 +68,7 @@ export default async function EventHero() {
   ];
   return (
     <div>
-      <div>
+      <div id="events">
         <div className="max-w-7xl mx-auto py-16 px-4">
           <div className="text-center mx-auto max-w-7xl">
             <div className="flex flex-col items-center justify-center">
