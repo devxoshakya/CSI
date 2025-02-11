@@ -80,3 +80,36 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: (error as Error).message }, { status: 500 });
     }
 }
+
+export async function GET(req: NextRequest) {
+    try {
+        const token = await verifyUser(req);
+        if (!token) {
+            return NextResponse.json({ error: 'Unauthorized: User not authenticated' }, { status: 401 });
+        }
+
+        // Retrieve eventId from the request query
+        const { searchParams } = new URL(req.url);
+        const eventId = searchParams.get('eventId');
+
+        if (!eventId) {
+            return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });
+        }
+
+        // Find the event by eventId
+        const event = await Event.findOne({ eventId });
+        if (!event) {
+            return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+        }
+
+        // Fetch all attendance records for the event
+        const attendanceRecords = await Attendance.find({ eventId });
+
+        return NextResponse.json({
+            message: 'Attendance records fetched successfully',
+            attendanceRecords,
+        });
+    } catch (error) {
+        return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+    }
+}

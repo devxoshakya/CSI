@@ -105,7 +105,6 @@ const handler = NextAuth({
           token.email = dbUser.email;
         }
       }
-
       return token;
     },
     async session({ session, token }) {

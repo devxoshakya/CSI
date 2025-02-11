@@ -112,3 +112,23 @@ export async function PUT(req: Request) {
     return NextResponse.json({ error: (error as Error).message, checkedIn: false }, { status: 500 });
   }
 }
+
+export async function GET(req: Request) {
+  try {
+    await connectToDatabase(); // Ensure DB is connected
+
+    const url = new URL(req.url);
+    const eventId = url.searchParams.get('eventId');
+
+    if (!eventId) {
+      return NextResponse.json({ error: 'Event ID is required' }, { status: 400 });
+    }
+
+    // Fetch all registrations for the specific event
+    const registrations = await Registration.find({ eventId });
+
+    return NextResponse.json({ registrations });
+  } catch (error) {
+    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+  }
+}
