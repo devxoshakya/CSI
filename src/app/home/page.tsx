@@ -32,6 +32,7 @@ export default function Landing() {
         <MarqueeDemo />
       </BlurFade>
 
+
       <BlurFade delay={0.25} inView>
         <FAQ />
       </BlurFade>

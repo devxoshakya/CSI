@@ -18,14 +18,14 @@ const formSchema = z.object({
 
 export async function POST(req: NextRequest) {
     if (req.method !== 'POST') {
-        return NextResponse.json({ message: 'Method not allowed', status: 405 });
+        return NextResponse.json({ message: 'Method not allowed'},{ status: 405 });
     }
 
     try {
         const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
         if (!token || !token.googleId) {
-            return NextResponse.json({ error: "Google account not found in session.", status: 400 });
+            return NextResponse.json({ error: "Google account not found in session."},{ status: 401 });
         }
 
         const googleId = token.googleId;
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
         const existingUser = await User.findOne({ googleId });
 
         if (!existingUser) {
-            return NextResponse.json({ error: "User not found in the database.", status: 404 });
+            return NextResponse.json({ error: "User not found in the database." },{ status: 404 });
         }
 
         // If the user is already onboarded
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
         const requiredFields = ['selectedDomains', 'experience', 'skills', 'availability', 'portfolio', 'aboutYou'];
         for (const field of requiredFields) {
             if (body[field] === undefined) {
-                return NextResponse.json({ error: `${field} is required`, status: 400 });
+                return NextResponse.json({ error: `${field} is required`},{ status: 400 });
             }
         }
 
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
         const existingApplication = await VolunteerApplication.findOne({ googleId });
 
         if (existingApplication) {
-            return NextResponse.json({ error: 'You have already submitted an application.', status: 400 });
+            return NextResponse.json({ error: 'You have already submitted an application.'},{ status: 400 });
         }
 
         // Save the volunteer application with the user's college email and other data
@@ -81,10 +81,10 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ message: 'Application submitted successfully.', status: 200 });
     } catch (error) {
         if (error instanceof z.ZodError) {
-            return NextResponse.json({ error: 'Validation failed', errors: error.errors, status: 400 });
+            return NextResponse.json({ error: 'Validation failed', errors: error.errors}, { status: 400 });
         }
 
         console.error('Error submitting application:', error);
-        return NextResponse.json({ error: 'Internal Server Error', status: 500 });
+        return NextResponse.json({ error: 'Internal Server Error'}, { status: 500 });
     }
 }
