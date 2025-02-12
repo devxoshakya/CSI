@@ -13,6 +13,7 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 export default function Landing() {
   return (
     <div>
+      <Navbar/>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <BlurFade delay={0.25} inView>
           <Hero />

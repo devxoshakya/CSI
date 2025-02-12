@@ -9,6 +9,9 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("users")
 
   return (
+    <div className="mt-8 px-2 mx-auto max-w-7xl">
+    <h1 className="py-4 font-semibold text-3xl mx-auto">CSI ADMIN DASHBOARD</h1>
+    
     <Tabs defaultValue="users" className="max-w-7xl mx-auto" onValueChange={setActiveTab}>
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="users">Users</TabsTrigger>
@@ -21,6 +24,7 @@ export default function Dashboard() {
         <EventsTab />
       </TabsContent>
     </Tabs>
+    </div>
   )
 }
 
