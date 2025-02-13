@@ -28,6 +28,10 @@ export  async function middleware(req: NextRequest) {
     if (token?.isOnboarded) {
       return NextResponse.redirect(new URL(ROUTES.EVENTS, req.url));
     }
+
+    if(token?.isOnboarded === false) {
+      return NextResponse.redirect(new URL(ROUTES.ONBOARDING, req.url));
+    }
     // Otherwise, allow access to root
     return NextResponse.next();
   }
