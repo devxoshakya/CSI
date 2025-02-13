@@ -14,9 +14,12 @@ interface BlurFadeProps {
   delay?: number
   yOffset?: number
   inView?: boolean
-  inViewMargin?: string
+  inViewMargin?: MarginType
   blur?: string
 }
+
+type MarginValue = `${number}${"px" | "%"}`;
+type MarginType = MarginValue | `${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`;
 
 export default function BlurFade({
   children,
@@ -26,7 +29,7 @@ export default function BlurFade({
   delay = 0,
   yOffset = 6,
   inView = false,
-  inViewMargin = '-50px',
+  inViewMargin = '-50px' as MarginType,
   blur = '20px',
 }: BlurFadeProps) {
   const ref = useRef(null)
@@ -37,6 +40,7 @@ export default function BlurFade({
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
   }
   const combinedVariants = variant || defaultVariants
+
   return (
     <AnimatePresence>
       <motion.div
