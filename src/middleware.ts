@@ -64,15 +64,14 @@ export  async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-// Configure paths that should be handled by the middleware
 export const config = {
   matcher: [
-    ROUTES.ROOT,
-    ROUTES.LOGIN,
-    ROUTES.ONBOARDING,
-    ROUTES.EVENTS,
-    ROUTES.HOME,
-    ROUTES.DASHBOARD,
+    '/',
+    '/login',
+    '/on-boarding',
+    '/events',
+    '/home',
+    '/dashboard',
     // Optionally protect all routes:
     // '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ]
