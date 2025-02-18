@@ -15,7 +15,7 @@ export default async function Blog({
   params: {
     slug: string;
   };
-}) {
+}): Promise<any> {
   let post = await getPost(params.slug);
 
   if (!post) {
