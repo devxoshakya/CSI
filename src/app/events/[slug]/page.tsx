@@ -8,15 +8,13 @@ import CdBackWrapper from "@/components/shared/CdWrapper";
 import DeatilsWrapper from "@/components/shared/event/DetailsWrapper";
 
 // Import `CdBack.tsx` dynamically to prevent server-client conflicts
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-export default async function Blog({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}): Promise<any> {
-  let post = await getPost(params.slug);
+export default async function Blog(props: PageProps) {
+  const { slug } = await props.params;
+  let post = await getPost(slug);
 
   if (!post) {
     notFound();
@@ -60,7 +58,7 @@ export default async function Blog({
             height={4000}
             width={8000}
           />
-          <DeatilsWrapper eventId={post.metadata.eventId}/>
+          <DeatilsWrapper eventId={post.metadata.eventId} />
           <article
             className="prose w-full max-w-none mt-4"
             dangerouslySetInnerHTML={{ __html: post.source }}
