@@ -115,6 +115,9 @@ export default async function EventHero() {
                 image={featuredPost.metadata.imageUrl}
                 //   video={proj}
                 links={featuredPost.metadata.links}
+                isUpcoming={featuredPost.metadata.isUpcoming}
+                  eventId={featuredPost.metadata.eventId}
+                  slug={featuredPost.slug}
                 className="h-full w-full"
               />
             </div>
@@ -129,6 +132,9 @@ export default async function EventHero() {
                   image={featuredPost.metadata.imageUrl}
                   //   video={proj}
                   links={featuredPost.metadata.links}
+                  isUpcoming={featuredPost.metadata.isUpcoming}
+                  eventId={featuredPost.metadata.eventId}
+                  slug={featuredPost.slug}
                   className="h-full  w-full"
                 />
               
@@ -142,6 +148,9 @@ export default async function EventHero() {
                 image={featuredPost.metadata.imageUrl}
                 //   video={proj}
                 links={featuredPost.metadata.links}
+                isUpcoming={featuredPost.metadata.isUpcoming}
+                  eventId={featuredPost.metadata.eventId}
+                  slug={featuredPost.slug}
                 className="h-full w-full"
               />
               <ProjectCard
@@ -154,6 +163,11 @@ export default async function EventHero() {
                 image={featuredPost.metadata.imageUrl}
                 //   video={proj}
                 links={featuredPost.metadata.links}
+                isUpcoming={featuredPost.metadata.isUpcoming}
+                  eventId={featuredPost.metadata.eventId}
+                  slug={featuredPost.slug}
+                
+
                 className="h-full w-full"
               />
             </div>
