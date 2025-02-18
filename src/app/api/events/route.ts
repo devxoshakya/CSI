@@ -53,7 +53,8 @@ export async function GET(req: NextRequest) {
                     title,
                     date,
                     eventSecret,
-                    adminEmail: token.googleId, // Use the email from the token
+                    adminEmail: token.googleId,
+                    likes: [] // Use the email from the token
                 });
                 await newEvent.save();
             } else {

@@ -39,7 +39,7 @@ export  async function middleware(req: NextRequest) {
   // If no token and trying to access protected route, redirect to login
   if (!token) {
     if (pathname !== ROUTES.LOGIN) {
-      return NextResponse.redirect(new URL(ROUTES.LOGIN, req.url));
+      return NextResponse.redirect(new URL(ROUTES.ROOT, req.url));
     }
     return NextResponse.next();
   }
@@ -73,7 +73,6 @@ export const config = {
     '/',
     '/login',
     '/on-boarding',
-    '/events',
     '/home',
     '/dashboard',
     // Optionally protect all routes:

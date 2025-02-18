@@ -1,11 +1,9 @@
 import Navbar from "@/components/Navbar";
-import { ThreeDCardDemo } from "@/components/shared/3-dcarddemo";
 import { MarqueeDemo } from "@/components/shared/marqueedemo";
 import { FeaturesSectionDemo } from "@/components/feature-section-with-bento-grid";
 
 import { Footerdemo } from "@/components/ui/footer-section";
 import { Hero } from "@/components/ui/hero-with-group-of-images-text-and-two-buttons";
-import EventsPage from "../events/page";
 import { FAQ } from "@/components/ui/faq-section";
 import EventHero from "./EventsSection";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -15,9 +13,8 @@ export default function Landing() {
     <div>
       <Navbar/>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <BlurFade delay={0.25} inView>
+        
           <Hero />
-        </BlurFade>
       </div>
       {/* <EventsPage/> */}
       <BlurFade delay={0.25} inView>

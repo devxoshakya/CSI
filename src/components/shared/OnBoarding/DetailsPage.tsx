@@ -1,15 +1,18 @@
+"use client";
 import React, { useState } from "react";
 // import { useRouter } from "next/router";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { getSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { startTransition } from "react";
 
 export function SignupFormDemo({ data }: any) {
   const [email, setEmail] = useState("");
   const [rollNo, setRollNo] = useState("");
   const [errorMessage, setErrorMessage] = useState<string|null>(null);
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,6 +40,7 @@ export function SignupFormDemo({ data }: any) {
 
     // Send data to the /api/on-boarding endpoint with authorization token
     try {
+      // console.log(session);
       const response = await fetch("/api/on-boarding", {
         method: "POST",
         headers: {
@@ -48,11 +52,15 @@ export function SignupFormDemo({ data }: any) {
 
       const responseData = await response.json();
       setErrorMessage(responseData.error || null);
+      // console.log(session);
       console.log("API Response:", responseData);
-
+      
       // Redirect to /events on successful submission
-      if (response.ok) {
-        // router.push("/events");
+      if (responseData.message === "Onboarding completed successfully.") {
+        startTransition(() => {
+          router.push("/events");
+        });
+        console.log("abb hoja")
       }
     } catch (error) {
       console.error("Error submitting the form:", error);

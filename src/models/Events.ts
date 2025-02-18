@@ -7,6 +7,7 @@ const eventSchema = new mongoose.Schema({
     date: { type: Date, required: true },
     adminEmail: { type: String, required: true }, // Store admin's email directly
     createdAt: { type: Date, default: Date.now },
+    likes: [{ type: String }], // Array to store googleId of users who liked the event
 });
 
 export default mongoose.models.Event || mongoose.model('Event', eventSchema);

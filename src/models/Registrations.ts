@@ -6,6 +6,7 @@ const registrationSchema = new mongoose.Schema({
     rollNo: { type: String, required: true },
     branch: { type: String, required: true },
     email: { type: String, required: true },
+    image: {type: String, required: true},
     registrationDate: { type: Date, default: Date.now },
 });
 

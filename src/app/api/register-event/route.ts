@@ -53,6 +53,7 @@ export async function POST(req: NextRequest) {
         const registration = new Registration({
             eventId,
             name: existingUser.name || 'Unknown',
+            image: existingUser.image || 'https://via.placeholder.com/150',
             rollNo: existingUser.rollNo || 'N/A',
             branch: existingUser.branch || 'N/A',
             email: existingUser.email,
