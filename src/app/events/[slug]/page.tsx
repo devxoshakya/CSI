@@ -7,15 +7,16 @@ import { Suspense } from "react";
 import CdBackWrapper from "@/components/shared/CdWrapper";
 import DeatilsWrapper from "@/components/shared/event/DetailsWrapper";
 
-type Props = {
+// Import `CdBack.tsx` dynamically to prevent server-client conflicts
+
+export default async function Blog({
+  params,
+}: {
   params: {
     slug: string;
   };
-};
-
-export default async function Blog({ params }: Props) {
-  const { slug } = params;
-  let post = await getPost(slug);
+}) {
+  let post = await getPost(params.slug);
 
   if (!post) {
     notFound();
@@ -59,7 +60,7 @@ export default async function Blog({ params }: Props) {
             height={4000}
             width={8000}
           />
-          <DeatilsWrapper eventId={post.metadata.eventId} />
+          <DeatilsWrapper eventId={post.metadata.eventId}/>
           <article
             className="prose w-full max-w-none mt-4"
             dangerouslySetInnerHTML={{ __html: post.source }}
