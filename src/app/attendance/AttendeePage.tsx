@@ -38,7 +38,7 @@ export default async function AttendeePage({
   // Extract the most recent post as the featured one
   const [featuredPost, ...otherPosts] = sortedPosts;
 
-  const selectedEventId = searchParams.eventId;
+  const selectedEventId = await searchParams.eventId;
 
   return (
     <>
