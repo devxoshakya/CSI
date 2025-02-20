@@ -1,9 +1,9 @@
 import AttendeePage from "./AttendeePage";
-
-interface PageProps {
-  searchParams: Record<string, string | string[] | undefined>;
+interface AttendancePageProps {
+  searchParams: Promise<{ eventId?: string }>;
 }
 
-export default function Attendance(props: PageProps){
-    return <AttendeePage searchParams={props.searchParams}/>
+export default async function Attendance({ searchParams }: AttendancePageProps) {
+  const { eventId } = await searchParams;
+  return <AttendeePage searchParams={{ eventId }} />;
 }
