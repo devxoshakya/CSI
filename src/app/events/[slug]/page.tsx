@@ -58,7 +58,7 @@ export default async function Blog(props: PageProps) {
             height={4000}
             width={8000}
           />
-          <DeatilsWrapper eventId={post.metadata.eventId} />
+          <DeatilsWrapper eventId={post.metadata.eventId} isUpcoming={post.metadata.isUpcoming} drive={post.metadata.drive || "https://google.com"} />
           <article
             className="prose w-full max-w-none mt-4"
             dangerouslySetInnerHTML={{ __html: post.source }}

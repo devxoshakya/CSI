@@ -17,7 +17,6 @@ export function RegisterButton({ eventId }: RegisterButtonProps) {
             const response = await fetch(`/api/register-event?eventId=${eventId}`, {
                 method: "GET",
             });
-
             if (response.ok) {
                 const data = await response.json();
                 setIsRegistered(data.registered);

@@ -9,6 +9,7 @@ export async function POST(req: Request) {
     await connectToDatabase(); // Ensure DB is connected
 
     const { phone, eventId } = await req.json();
+    console.log(phone, eventId);
 
     if (!phone || !eventId) {
       return NextResponse.json({ error: 'Phone and Event ID are required', checkedIn: false }, { status: 400 });
@@ -23,7 +24,7 @@ export async function POST(req: Request) {
     // Check if the user is registered for the event
     const isRegistered = await Registration.findOne({ eventId, email: user.email });
     if (!isRegistered) {
-      return NextResponse.json({ error: 'User is not registered for this event', checkedIn: false }, { status: 400 });
+      return NextResponse.json({ message: 'User is not registered for this event', checkedIn: false }, { status: 402 });
     }
 
     // Check if the user is already checked in

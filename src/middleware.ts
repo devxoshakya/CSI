@@ -63,7 +63,6 @@ export  async function middleware(req: NextRequest) {
     // Allow access to all other protected routes
     return NextResponse.next();
   }
-
   // Default: allow the request
   return NextResponse.next();
 }
