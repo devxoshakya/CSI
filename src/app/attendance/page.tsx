@@ -1,9 +1,7 @@
 import AttendeePage from "./AttendeePage";
 
 interface PageProps {
-  searchParams: {
-    eventId?: string;
-  };
+  searchParams: Record<string, string | string[] | undefined>;
 }
 
 export default function Attendance(props: PageProps){
