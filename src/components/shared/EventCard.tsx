@@ -94,7 +94,7 @@ export function ProjectCard({
           <div className="mt-2 flex flex-wrap gap-1">
             {tags?.map((tag) => (
               <Badge
-                className="px-1 py-0 text-[10px]"
+                className="px-2 py-0 text-[10px] rounded-md"
                 variant="secondary"
                 key={tag}
               >

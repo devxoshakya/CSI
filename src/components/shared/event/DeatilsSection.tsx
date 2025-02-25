@@ -15,7 +15,7 @@ export default function DeatilsSection({
 }) {
   return (
     <>
-      <div className="flex my-2 justify-start items-center w-full gap-2 md:gap-4">
+      <div className="flex my-2 justify-start items-center w-full gap-0 md:gap-4">
         {isUpcoming ? <RegisterButton eventId={eventId} /> : <PhotosButton drive={drive} />}
         <LikeCounter eventId={eventId} />
         <div className="whitespace-nowrap md:pt-1">

@@ -84,12 +84,22 @@ export default function AttendeeScanner({ eventId }: QrScannerFormProps) {
       console.log("Scanned QR Code:", decodedText);
 
       const parts = decodedText.split("-");
-      if (parts.length !== 4) {
+      if (parts.length !== 4 && parts.length !== 5) {
         setError("Invalid QR code format. Please try again.");
         return;
       }
 
-      const [branch, name, fname, phone] = parts;
+      let branch, name, fname, phone;
+      if (parts.length === 5) {
+        const [course, b, n, f, p] = parts;
+        branch = b;
+        name = n;
+        fname = f;
+        phone = p;
+      } else {
+        [branch, name, fname, phone] = parts;
+      }
+
       const userData = { branch, name, fname, phone };
       console.log("Extracted Data:", userData);
       setScannedData(userData);

@@ -28,22 +28,18 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: 'Unauthorized: User not authenticated' }, { status: 401 });
         }
 
-        // Retrieve eventId and eventSecret from the request body
-        const { eventId, eventSecret } = await req.json();
+        // Retrieve eventSecret from the request body
+        const { eventSecret } = await req.json();
 
-        if (!eventId || !eventSecret) {
-            return NextResponse.json({ error: 'Event ID and event secret are required' }, { status: 400 });
+        if (!eventSecret) {
+            return NextResponse.json({ error: 'Event secret is required' }, { status: 400 });
         }
 
-        // Find the event by eventId
-        const event = await Event.findOne({ eventId });
+        // Find the event by eventSecret
+        const event = await Event.findOne({ eventSecret });
+        const eventId = event?.eventId;
         if (!event) {
             return NextResponse.json({ error: 'Event not found' }, { status: 404 });
-        }
-
-        // Check if the eventSecret matches
-        if (event.eventSecret !== eventSecret) {
-            return NextResponse.json({ error: 'Invalid event secret' }, { status: 403 });
         }
 
         // Find the user by token email
@@ -59,7 +55,20 @@ export async function POST(req: NextRequest) {
         });
 
         if (!registration) {
-            return NextResponse.json({ error: 'User is not registered for this event' }, { status: 400 });
+            return NextResponse.json({ error: 'User is not registered for this event' }, { status: 403 });
+        }
+
+        // Check if attendance is already marked
+        const alreadyMarked = await Attendance.findOne({
+            eventId,
+            email: existingUser.email,
+        });
+
+        if (alreadyMarked) {
+            return NextResponse.json({
+                message: 'Attendance already marked',
+                checkedIn: true,
+            });
         }
 
         // Record attendance in the Attendance model
@@ -80,6 +89,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: (error as Error).message }, { status: 500 });
     }
 }
+
 
 export async function GET(req: NextRequest) {
     try {

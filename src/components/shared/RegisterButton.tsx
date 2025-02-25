@@ -68,7 +68,7 @@ export function RegisterButton({ eventId }: RegisterButtonProps) {
 
     return (
         <div className="relative inline-block">
-            <RainbowButton className="h-8 md:h-10 w-full" onClick={handleClick}>
+            <RainbowButton className="h-10 w-full" onClick={handleClick}>
                 {isRegistered ? "Unregister" : "Register!"}
             </RainbowButton>
         </div>
