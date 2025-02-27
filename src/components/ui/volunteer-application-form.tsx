@@ -70,7 +70,6 @@ export default function VolunteerApplicationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ ...formData, selectedDomains });
     localStorage.setItem("formData", JSON.stringify(formData));
     fetch("/api/volunteer", {
       method: "POST",
@@ -86,13 +85,11 @@ export default function VolunteerApplicationForm() {
           setErrorMessage(null);
         } else {
           return response.json().then((data) => {
-            console.log(data.error);
             setErrorMessage(data.error);
           });
         }
       })
       .then((data) => {
-        console.log("Success:", data);
       })
       .catch((error) => {
         console.error("Error:", error);

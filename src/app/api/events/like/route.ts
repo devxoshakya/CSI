@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
 
         return NextResponse.json(response, { status: 200 });
     } catch (error) {
-        console.log(error);
+      
         return NextResponse.json({ error: 'Failed to fetch events' }, { status: 500 });
     }
 }
@@ -63,7 +63,6 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ message: 'Event liked successfully', likes: event.likes.length }, { status: 200 });
     } catch (error) {
-        console.log(error);
         return NextResponse.json({ error: 'Failed to like event' }, { status: 500 });
     }
 }

@@ -24,10 +24,8 @@ export default function UsersTab() {
     const fetchUsers = async () => {
       try {
         const response = await fetch("/api/user")
-        console.log(response);
         if (!response.ok) throw new Error("Failed to fetch users")
         const data = await response.json()
-        console.log(data.users, "hellooo");
         setUsersData(data.users)
       } catch (error) {
         console.error("Error fetching users:", error)

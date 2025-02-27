@@ -37,12 +37,10 @@ export default function QrScannerForm({ onDataScanned }: any) {
 
   const startScanner = async () => {
     setError(null);
-    console.log("Attempting to access the camera...");
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
       });
-      console.log("Camera stream started successfully:", stream);
 
       const qrReaderElement = qrReaderElementRef.current;
       if (qrReaderElement) {
@@ -58,7 +56,6 @@ export default function QrScannerForm({ onDataScanned }: any) {
         );
         setQrReader(newQrReader);
         setIsScanning(true);
-        console.log("QR reader started successfully.");
       } else {
         throw new Error("QR reader element not found");
       }
@@ -100,7 +97,6 @@ export default function QrScannerForm({ onDataScanned }: any) {
   };
 
   const onScanFailure = (error: string) => {
-    console.log("QR code scan failed:", error);
   };
 
   return (

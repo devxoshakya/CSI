@@ -24,7 +24,7 @@ export default async function Blog(props: PageProps) {
     <>
       <Navbar />
       <main className="flex flex-col items-center justify-start md:py-20 py-2 max-w-2xl mx-auto">
-        <section id="blog" className="md:max-w-full max-w-[370px]">
+        <section id="blog" className="md:max-w-full max-w-[365px] mx-2">
           <script
             type="application/ld+json"
             suppressHydrationWarning

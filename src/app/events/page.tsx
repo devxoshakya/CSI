@@ -24,7 +24,6 @@ export default async function BlogPage() {
 
   // Extract the most recent post as the featured one
   const [featuredPost, ...otherPosts] = sortedPosts;
-  console.log(featuredPost);
 
 
   return (

@@ -7,6 +7,7 @@ import { RainbowButton } from "../ui/RainbowButton";
 
 interface RegisterButtonProps {
     eventId: string;
+    
 }
 
 export function RegisterButton({ eventId }: RegisterButtonProps) {
@@ -68,7 +69,7 @@ export function RegisterButton({ eventId }: RegisterButtonProps) {
 
     return (
         <div className="relative inline-block">
-            <RainbowButton className="h-10 w-full" onClick={handleClick}>
+            <RainbowButton className="h-10 md:w-full w-[6.5rem]" onClick={handleClick}>
                 {isRegistered ? "Unregister" : "Register!"}
             </RainbowButton>
         </div>

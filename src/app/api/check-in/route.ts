@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     await connectToDatabase(); // Ensure DB is connected
 
     const { phone, eventId } = await req.json();
-    console.log(phone, eventId);
+   
 
     if (!phone || !eventId) {
       return NextResponse.json({ error: 'Phone and Event ID are required', checkedIn: false }, { status: 400 });

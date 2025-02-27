@@ -25,7 +25,6 @@ function Footerdemo() {
     const email = formData.get("email");
 
     if (localStorage.getItem("subscribed")) {
-      console.log("You have already subscribed.");
       return;
     }
 
@@ -39,7 +38,6 @@ function Footerdemo() {
 
     if (response.ok) {
       // Handle success
-      console.log("Subscribed successfully!");
       localStorage.setItem("subscribed", "true");
       setEmail(""); // Clear the input field
     } else {

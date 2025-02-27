@@ -8,7 +8,6 @@ export async function POST(req: NextRequest) {
     const { name, fname, email, rollno, branch, year, phone } = await req.json();
 
     if (!name || !fname || !email || !rollno || !branch || !year) {
-      console.log("All fields are required.", { name, fname, email, rollno, branch, year });
       return NextResponse.json({ error: "All fields are required." }, { status: 400 });
     }
 
@@ -16,7 +15,6 @@ export async function POST(req: NextRequest) {
 
     // Fetch the token using getToken (compatible with NextRequest)
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-    console.log(token);
 
     if (!token) {
       return NextResponse.json({ error: "Unauthorized. Please log in first." }, { status: 401 });

@@ -21,8 +21,8 @@ const RegistrationsBadge = ({ eventId }: { eventId: string }) => {
     }, [eventId]);
 
     return (
-        <div className="my-auto inline-block">
-            <Pill className="">
+        <div className="my-auto inline-block ">
+            <Pill className=" md:w-40 w-[9.75rem] p-1 px-2 pr-0 gap-1 mr-0">
                 <PillAvatarGroup>
 
                      <PillAvatar key={1} src={"https://avatars.githubusercontent.com/u/175945557"}/>

@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import connectToDatabase from "@/config/mongoose";
 import User from "@/models/User";
 
+
 declare module "next-auth" {
   interface User {
     id: string;
@@ -36,7 +37,6 @@ const handler = NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
       async profile(profile) {
-        console.log(profile);
         return {
           id: profile.sub,
           googleId: profile.email, // Store Google OAuth email

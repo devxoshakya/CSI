@@ -27,7 +27,6 @@ export function SignupFormDemo({ data }: any) {
 
     // Prepare the request body with user details
     const year = email.match(/\d{4}/)?.[0];
-    console.log(year, email, rollNo);
     const userData = {
       name: data.split("-")[1],
       fname: data.split("-")[2],
@@ -40,7 +39,6 @@ export function SignupFormDemo({ data }: any) {
 
     // Send data to the /api/on-boarding endpoint with authorization token
     try {
-      // console.log(session);
       const response = await fetch("/api/on-boarding", {
         method: "POST",
         headers: {
@@ -52,15 +50,12 @@ export function SignupFormDemo({ data }: any) {
 
       const responseData = await response.json();
       setErrorMessage(responseData.error || null);
-      // console.log(session);
-      console.log("API Response:", responseData);
       
       // Redirect to /events on successful submission
       if (responseData.message === "Onboarding completed successfully.") {
         startTransition(() => {
           router.push("/events");
         });
-        console.log("abb hoja")
       }
     } catch (error) {
       console.error("Error submitting the form:", error);
@@ -68,7 +63,6 @@ export function SignupFormDemo({ data }: any) {
   };
 
   const [branch, name, fname, phone] = data.split("-");
-  console.log(branch, name, fname, phone);
 
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">

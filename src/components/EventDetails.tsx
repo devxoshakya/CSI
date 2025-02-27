@@ -59,7 +59,6 @@ export default function EventDetails({ event, onBack }: EventDetailsProps) {
         const response = await fetch(`/api/${view}?eventId=${event.eventId}`);
         if (!response.ok) throw new Error(`Failed to fetch ${view}`);
         const data = await response.json();
-        console.log(data);
         if (view === "registrations") {
           setParticipants(data.registrations);
         } else if (view ==="attendance"){

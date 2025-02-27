@@ -61,7 +61,7 @@ export default function LikeCounter({ eventId }: { eventId: string }) {
     };
 
     return (
-        <div className="relative flex justify-center items-center md:mt-1">
+        <div className="relative flex justify-center items-center md:mt-1 px-2 mx-1">
             <CoolMode
                 key={optimisticLikes} // Forces re-render when like count changes
                 options={{
@@ -73,7 +73,7 @@ export default function LikeCounter({ eventId }: { eventId: string }) {
                     speedUp: 16,
                 }}
             >
-                <Button onClick={handleLike} className="h-8 md:h-10 w-full bg-white text-black hover:bg-white" disabled={loading || isPending}>
+                <Button onClick={handleLike} className="h-8 md:h-10 w-full bg-white text-black hover:bg-white p-0" disabled={loading || isPending}>
                     <Heart
                         className={`-ms-1 me-2 ${
                             isLiked ? "fill-red-500 text-red-500" : "opacity-60"

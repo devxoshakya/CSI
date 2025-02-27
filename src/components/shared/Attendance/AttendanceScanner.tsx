@@ -4,53 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { Card } from "@/components/ui/card";
 import { useRouter, usePathname } from "next/navigation";
 import FeedBack from "./Feedback";
-
-const FeedBacsk = ({ onClose }: { onClose: () => void }) => {
-  const [feedback, setFeedback] = useState("");
-
-  const handleSubmit = () => {
-    console.log("Feedback submitted:", feedback);
-    localStorage.removeItem("attendance");
-    onClose();
-  };
-
-  return (
-    <Dialog open>
-      <DialogHeader>
-        <DialogTitle>Attendance Marked</DialogTitle>
-      </DialogHeader>
-      <DialogContent>
-        <div className="flex items-center justify-center space-x-4 mb-4">
-          <AlertCircle className="h-8 w-8 text-green-500" />
-          <AlertTitle className="text-green-500">
-            Attendance marked successfully
-          </AlertTitle>
-        </div>
-        <textarea
-          className="w-full p-2 border rounded-md"
-          placeholder="Write your feedback here..."
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
-        />
-      </DialogContent>
-      <DialogFooter>
-        <Button onClick={handleSubmit}>Submit Feedback</Button>
-      </DialogFooter>
-    </Dialog>
-  );
-};
 
 export default function AttendanceScanner() {
   const [isScanning, setIsScanning] = useState(true);
@@ -114,7 +71,6 @@ export default function AttendanceScanner() {
 
   const onScanSuccess = async (decodedText: string) => {
     try {
-      console.log("Scanned QR Code:", decodedText);
       const url = new URL(decodedText);
       const eventSecret = url.searchParams.get("eventSecret");
       if (!eventSecret) {

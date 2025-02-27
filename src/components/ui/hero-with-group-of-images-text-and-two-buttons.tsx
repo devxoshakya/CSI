@@ -1,11 +1,10 @@
-import { MoveRight, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedModalDemo } from "../shared/login";
 import Image from "next/image";
 import WhatsHappeningButton from "../shared/WhatsHappeningButton";
 
 function Hero() {
+  const IMAGE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
   return (
     <div className="w-auto mx-auto py-20 lg:py-20 ">
       <div className="container mx-auto">
@@ -31,7 +30,7 @@ function Hero() {
           <div className="grid grid-cols-2 gap-8">
             <div className="bg-muted rounded-md aspect-square">
             <Image
-              src="/hero/h3.png"
+              src={`${IMAGE_URL}/hero/h3.png`}
               alt="hero image"
               height={2000}
               width={1000}
@@ -39,7 +38,7 @@ function Hero() {
             </div>
             <div className="bg-muted rounded-md row-span-2">
               <Image
-              src="/hero/h2.png"
+              src={`${IMAGE_URL}/hero/h2.png`}
               alt="hero image"
               height={2000}
               width={1000}
@@ -48,7 +47,7 @@ function Hero() {
             </div>
             <div className="bg-muted rounded-md aspect-square relative overflow-hidden object-fill">
               <Image
-              src="/hero/h1.png"
+              src={`${IMAGE_URL}/hero/h1.png`}
               alt="hero image"
               height={1000}
               width={2000}

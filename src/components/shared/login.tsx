@@ -18,7 +18,6 @@ import { Lightbulb, Handshake, Book, Target, Users, Globe } from 'lucide-react';
 
 export function AnimatedModalDemo({...props}:any) {
   const { data: session } = useSession();
-  console.log(session);
   const images = ["/g1.jpg", "/g2.jpg", "/g3.jpg", "/g4.jpg", "/g5.jpg"];
   
 

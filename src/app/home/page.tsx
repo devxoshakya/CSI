@@ -1,17 +1,16 @@
-import Navbar from "@/components/Navbar";
 import { MarqueeDemo } from "@/components/shared/marqueedemo";
 import { FeaturesSectionDemo } from "@/components/feature-section-with-bento-grid";
-
 import { Footerdemo } from "@/components/ui/footer-section";
 import { Hero } from "@/components/ui/hero-with-group-of-images-text-and-two-buttons";
 import { FAQ } from "@/components/ui/faq-section";
 import EventHero from "./EventsSection";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import NavbarWrapper from "@/components/NavbarWrapper";
 
 export default function Landing() {
   return (
     <div>
-      <Navbar/>
+      <NavbarWrapper />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
           <Hero />

@@ -45,7 +45,6 @@ export async function POST(req: NextRequest) {
         //   return NextResponse.json({ error: "User is already onboarded.", status: 400 });
         // }
         const body = await req.json();
-        console.log(body);
         // Check if all required fields are present
         const requiredFields = ['selectedDomains', 'experience', 'skills', 'availability', 'portfolio', 'aboutYou'];
         for (const field of requiredFields) {

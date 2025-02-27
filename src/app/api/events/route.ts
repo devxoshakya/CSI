@@ -44,7 +44,7 @@ export async function GET(req: NextRequest) {
                 // return NextResponse.json({ error: 'Missing required metadata fields: eventId, title, or date' }, { status: 400 });
                 continue; // Skip this iteration if any of the required fields are missing
             }
-            console.log(data.metadata);
+           
 
             if (!existingEvent) {
                 // If event doesn't exist, create a new event

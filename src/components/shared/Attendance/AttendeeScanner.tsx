@@ -81,7 +81,6 @@ export default function AttendeeScanner({ eventId }: QrScannerFormProps) {
 
   const onScanSuccess = async (decodedText: string) => {
     try {
-      console.log("Scanned QR Code:", decodedText);
 
       const parts = decodedText.split("-");
       if (parts.length !== 4 && parts.length !== 5) {
@@ -101,7 +100,6 @@ export default function AttendeeScanner({ eventId }: QrScannerFormProps) {
       }
 
       const userData = { branch, name, fname, phone };
-      console.log("Extracted Data:", userData);
       setScannedData(userData);
       stopScanner();
 

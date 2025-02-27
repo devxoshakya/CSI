@@ -20,13 +20,12 @@ export function FeedbackDialog() {
 
   const handleSubmit = () => {
     // Here you would typically send the rating and feedback to your backend
-    console.log({ rating, feedback })
     setIsOpen(false)
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="max-w-[350px] md:max-w-[450px] rounded">
         <DialogHeader>
           <DialogTitle>Event Feedback</DialogTitle>
           <DialogDescription>Please rate the event and provide any additional feedback.</DialogDescription>
